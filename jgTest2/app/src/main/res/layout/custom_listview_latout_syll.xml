@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/listlayoutbg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rectattop"
+        app:layout_constraintBottom_toBottomOf="@+id/customListNo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/customListNo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/customListNo"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:background="@color/BtmNavDull"
+        android:fontFamily="@font/open_sans_bold"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/customListHeading"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:paddingLeft="7dp"
+        android:text="Heading"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/customListNo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/customListDes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
+        android:gravity="center|start"
+        android:paddingLeft="7dp"
+        android:text="descrioption"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/customListNo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/customListNo"
+        app:layout_constraintTop_toBottomOf="@+id/customListHeading" />
+
+    <ImageView
+        android:id="@+id/rightArrow"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:background="@color/BtmNavDull"
+        android:padding="10dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/customListNo"
+        app:layout_constraintTop_toTopOf="@+id/customListNo"
+        app:srcCompat="@drawable/ic_right_arrow" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
