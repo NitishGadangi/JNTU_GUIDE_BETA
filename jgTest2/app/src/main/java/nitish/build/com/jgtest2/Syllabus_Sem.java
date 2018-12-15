@@ -17,23 +17,20 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import static nitish.build.com.jgtest2.AllStringsArrays.COURSES;
-
-public class Syllabus_Year extends AppCompatActivity {
+public class Syllabus_Sem extends AppCompatActivity {
     String[] listStringArr;
-    int codeCourseBranchPos;
-
+    int codeCourseBranchYearPos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_syllabus__year);
+        setContentView(R.layout.activity_syllabus__sem);
 
         Intent sourceIntent = getIntent();
-        codeCourseBranchPos = sourceIntent.getIntExtra("CourseBranch",1);
+        codeCourseBranchYearPos = sourceIntent.getIntExtra("CourseBranchYear",1);
 
         Toolbar toolbar = findViewById(R.id.toolbarSyll);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Select your course Year");
+        getSupportActionBar().setTitle("Select Semester");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -46,25 +43,27 @@ public class Syllabus_Year extends AppCompatActivity {
             }
         });
 
-        listStringArr=ArrayListSetter.setYearList(codeCourseBranchPos);
+        //listStringArr=ArrayListSetter.setSemList(codeCourseBranchYearPos);
+        listStringArr=AllStringsArrays.SEMESTERS;
         //setListStringArray(clickedCoursePos);
 
-        ListView courseList = findViewById(R.id.yearList);
+        ListView courseList = findViewById(R.id.semList);
         CustomAdapter coursesAdapter = new CustomAdapter();
         courseList.setAdapter(coursesAdapter);
 
         courseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String codeStr = Integer.toString(codeCourseBranchPos)+Integer.toString(position);
-                Intent toSemList = new Intent(getApplicationContext(),Syllabus_Sem.class);
-                toSemList.putExtra("CourseBranchYear",Integer.parseInt(codeStr));
-                startActivity(toSemList);
-
+                String codeStr = Integer.toString(codeCourseBranchYearPos)+Integer.toString(position);
+                //Intent toSemList = new Intent(getApplicationContext(),Syllabus_finTest.class);
+                //toSemList.putExtra("CourseBranchYearSem",Integer.parseInt(codeStr));
+                //startActivity(toSemList);
+                //Test
+                Intent toPdfViewer = new Intent(getApplicationContext(),PdfViewerTest.class);
+                startActivity(toPdfViewer);
 
             }
         });
-
     }
 
     class CustomAdapter extends BaseAdapter {

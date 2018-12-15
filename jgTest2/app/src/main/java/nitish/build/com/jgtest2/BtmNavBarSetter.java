@@ -1,49 +1,15 @@
 package nitish.build.com.jgtest2;
 
-import android.content.Intent;
 import android.graphics.PorterDuff;
-import com.google.android.material.tabs.TabLayout;
-import androidx.core.widget.NestedScrollView;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-    // Attributes -------------
-    static TabLayout tab_layout;   // Bottom Tab Icon Layout
-    Button syllabusButn,resultsBtn;
+import com.google.android.material.tabs.TabLayout;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+import androidx.appcompat.app.AppCompatActivity;
 
+public class BtmNavBarSetter extends AppCompatActivity {
+    public void initComponent(TabLayout tab_layout) {
 
-        initComponent();
-        syllabusButn=findViewById(R.id.syllabusBtn);
-        syllabusButn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent syllabusIntent = new Intent(getApplicationContext(),syllabus_select_course.class);
-                startActivity(syllabusIntent);
-                }});
-
-        resultsBtn=findViewById(R.id.resultsBtn);
-        resultsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent resultsWebIntent = new Intent(getApplicationContext(),results_web.class);
-                startActivity(resultsWebIntent);
-            }
-        });
-    }
-
-    private void initComponent() {
-
-        tab_layout = (TabLayout) findViewById(R.id.btmNav);
 
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_home), 0);
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_star), 1);
@@ -65,23 +31,23 @@ public class MainActivity extends AppCompatActivity {
                 switch (tab.getPosition()) {
                     case 0:
                         // implement your code..like Toast msg.
-                        Toast.makeText(MainActivity.this, "0Clicked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "0Clicked", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
                         // implement your code..
-                        Toast.makeText(MainActivity.this, "1Clicked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "1Clicked", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
                         // implement your code..
-                        Toast.makeText(MainActivity.this, "2Clicked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "2Clicked", Toast.LENGTH_SHORT).show();
                         break;
                     case 3:
                         // implement your code..
-                        Toast.makeText(MainActivity.this, "3Clicked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "3Clicked", Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
                         // implement your code..
-                        Toast.makeText(MainActivity.this, "4Clicked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "4Clicked", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

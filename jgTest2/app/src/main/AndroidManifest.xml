@@ -3,7 +3,8 @@
     package="nitish.build.com.jgtest2">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,7 +27,10 @@
         <activity android:name=".syllabus_select_course" />
         <activity android:name=".results_web" />
         <activity android:name=".Syllabus_Branch" />
-        <activity android:name=".Syllabus_Year"></activity>
+        <activity android:name=".Syllabus_Year" />
+        <activity android:name=".Syllabus_Sem" />
+        <activity android:name=".Syllabus_finTest" />
+        <activity android:name=".PdfViewerTest"></activity>
     </application>
 
 </manifest>

@@ -43,4 +43,19 @@ public class ArrayListSetter {
         }
         return setedlist;
     }
+
+    public static String[] setSemList(int clickedpos){
+        setedlist = SEMESTERS;
+        return setedlist;
+    }
+    public static String getFinalCourseName(int codeFin){
+        String finCourse,codeStr=Integer.toString(codeFin);
+        int branch = Character.getNumericValue(codeStr.charAt(1)),
+                year=Character.getNumericValue(codeStr.charAt(2));
+        finCourse=COURSES[Integer.parseInt(codeStr.substring(0,1))-1]+
+                setBranchList(Integer.parseInt(codeStr.substring(0,1)))[branch]+
+                setYearList(Integer.parseInt(codeStr.substring(0,2)))[year]+
+                SEMESTERS[Character.getNumericValue(codeStr.charAt(3))];
+        return finCourse;
+    }
 }
