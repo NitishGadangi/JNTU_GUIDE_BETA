@@ -51,8 +51,6 @@ public class PdfViewerTest extends AppCompatActivity {
                 .load();
 
     }
-
-
     public int[] generatePages(String start,String end){
         int pos=0;
         int startI = Integer.parseInt(start);
