@@ -2,6 +2,7 @@ package nitish.build.com.jgtest2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.github.barteksc.pdfviewer.PDFView;
@@ -17,18 +18,32 @@ public class PdfViewerTest extends AppCompatActivity {
     PDFView pdfView;
     Integer pageNumber = 0;
     String pdfFileName;
+    String[][] subjStringArrAr;
+    int codeCourseBranchYearSemSubjPos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf_viewer_test);
 
+        Intent sourceIntent = getIntent();
+        codeCourseBranchYearSemSubjPos = sourceIntent.getIntExtra("CourseBranchYearSemSubj",11111);
+
+        int courseBranchYearSem=(codeCourseBranchYearSemSubjPos/10);
+        int subjPos=(codeCourseBranchYearSemSubjPos-(courseBranchYearSem*10));
+
+
         //int[] arrr={2,3,4,5};
+        try {
+            subjStringArrAr=ArrayListSetter.setSubjectList(ArrayListSetter.extractCodeForSubject(courseBranchYearSem));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         String[] strarr ={"2","5"};
 
         pdfView= (PDFView)findViewById(R.id.pdfTest);
-        pdfView.fromAsset("subj_idp_ece17.pdf")
-                .pages(generatePages(strarr[0],strarr[1]))
+        pdfView.fromAsset("fsyll_btech_ece17.pdf")
+                .pages(generatePages(subjStringArrAr[subjPos][2],subjStringArrAr[subjPos][3]))
                 .defaultPage(pageNumber)
                 .enableSwipe(true)
                 .swipeHorizontal(false)

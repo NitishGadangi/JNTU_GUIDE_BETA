@@ -17,23 +17,21 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import static nitish.build.com.jgtest2.AllStringsArrays.COURSES;
-
-public class Syllabus_Year extends AppCompatActivity {
-    String[] listStringArr;
-    int codeCourseBranchPos;
+public class Syllabus_Subj extends AppCompatActivity {
+    String[][] listStringArrAr;
+    int codeCourseBranchYearSemPos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_syllabus__year);
+        setContentView(R.layout.activity_syllabus__subj);
 
         Intent sourceIntent = getIntent();
-        codeCourseBranchPos = sourceIntent.getIntExtra("CourseBranch",11);
+        codeCourseBranchYearSemPos = sourceIntent.getIntExtra("CourseBranchYearSem",1111);
 
         Toolbar toolbar = findViewById(R.id.toolbarSyll);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Select your course Year");
+        getSupportActionBar().setTitle("Select a Subject");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -46,34 +44,41 @@ public class Syllabus_Year extends AppCompatActivity {
             }
         });
 
-        listStringArr=ArrayListSetter.setYearList(codeCourseBranchPos);
+
+        try {
+            listStringArrAr=ArrayListSetter.setSubjectList(ArrayListSetter.extractCodeForSubject(codeCourseBranchYearSemPos));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         //setListStringArray(clickedCoursePos);
 
-        ListView courseList = findViewById(R.id.yearList);
+        ListView courseList = findViewById(R.id.subjList);
         CustomAdapter coursesAdapter = new CustomAdapter();
         courseList.setAdapter(coursesAdapter);
 
         courseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String codeStr = Integer.toString(codeCourseBranchPos)+Integer.toString(position);
-                Intent toSemList = new Intent(getApplicationContext(),Syllabus_Sem.class);
-                toSemList.putExtra("CourseBranchYear",Integer.parseInt(codeStr));
+                String codeStr = Integer.toString(codeCourseBranchYearSemPos)+Integer.toString(position);
+                Intent toSemList = new Intent(getApplicationContext(),PdfViewerTest.class);
+                toSemList.putExtra("CourseBranchYearSemSubj",Integer.parseInt(codeStr));
                 startActivity(toSemList);
 
 
             }
         });
 
+
     }
+
 
     class CustomAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
-            Log.i("Countaaaa",Integer.toString(listStringArr.length));
+            //Log.i("Countaaaa",Integer.toString(listStringArr.length));
             //Toast.makeText(syllabus_select_course.this, COURSES.length, Toast.LENGTH_SHORT).show();
-            return (listStringArr.length);
+            return (listStringArrAr.length);
         }
 
         @Override
@@ -101,13 +106,12 @@ public class Syllabus_Year extends AppCompatActivity {
             rightArrow.setVisibility(View.INVISIBLE);
             //customlistNo.setVisibility(View.VISIBLE);
             customlistNo.setText(Integer.toString(position+1));
-            customListHead.setText(listStringArr[position]);
-            customListDes.setText(listStringArr[position]);
+            customListHead.setText(listStringArrAr[position][0]);
+            customListDes.setText(listStringArrAr[position][1]);
 
             return convertView;
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -123,4 +127,6 @@ public class Syllabus_Year extends AppCompatActivity {
         {}
         return super.onOptionsItemSelected(item);
     }
+
+
 }

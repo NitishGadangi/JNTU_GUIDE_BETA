@@ -54,13 +54,16 @@ public class Syllabus_Sem extends AppCompatActivity {
         courseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 String codeStr = Integer.toString(codeCourseBranchYearPos)+Integer.toString(position);
-                //Intent toSemList = new Intent(getApplicationContext(),Syllabus_finTest.class);
-                //toSemList.putExtra("CourseBranchYearSem",Integer.parseInt(codeStr));
-                //startActivity(toSemList);
+                if(Character.getNumericValue(codeStr.charAt(1))==0) {
+                    Intent toSemList = new Intent(getApplicationContext(), Syllabus_Subj.class);
+                    toSemList.putExtra("CourseBranchYearSem", Integer.parseInt(codeStr));
+                    startActivity(toSemList);
+                }
                 //Test
-                Intent toPdfViewer = new Intent(getApplicationContext(),PdfViewerTest.class);
-                startActivity(toPdfViewer);
+                //Intent toPdfViewer = new Intent(getApplicationContext(),PdfViewerTest.class);
+                //startActivity(toPdfViewer);
 
             }
         });
