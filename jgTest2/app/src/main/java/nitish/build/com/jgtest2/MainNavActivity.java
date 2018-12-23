@@ -1,51 +1,41 @@
 package nitish.build.com.jgtest2;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.PorterDuff;
-import com.google.android.material.tabs.TabLayout;
-import androidx.core.widget.NestedScrollView;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-    // Attributes -------------
-    static TabLayout tab_layout;   // Bottom Tab Icon Layout
-    Button syllabusButn,resultsBtn;
+import com.google.android.material.tabs.TabLayout;
+
+public class MainNavActivity extends AppCompatActivity {
+    static TabLayout tab_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_main_nav);
 
         initComponent();
-        Log.i("hello","position");
 
-        syllabusButn=findViewById(R.id.syllabusBtn);
-        syllabusButn.setOnClickListener(new View.OnClickListener() {
+        Button tempHome = findViewById(R.id.tempHome);
+        tempHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent syllabusIntent = new Intent(getApplicationContext(),syllabus_select_course.class);
-                startActivity(syllabusIntent);
-                }});
-
-        resultsBtn=findViewById(R.id.resultsBtn);
-        resultsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent resultsWebIntent = new Intent(getApplicationContext(),results_web.class);
-                startActivity(resultsWebIntent);
+                Intent homeActivity = new Intent(getApplicationContext(),MainActivity.class);
+                homeActivity.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(homeActivity);
+                finish();
             }
         });
+
     }
 
+
     private void initComponent() {
-        Log.i("hello","position");
 
         tab_layout = (TabLayout) findViewById(R.id.btmNav);
 
@@ -56,40 +46,35 @@ public class MainActivity extends AppCompatActivity {
         tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ic_threedots), 3);
 
         // set icon color pre-selected
-        tab_layout.getTabAt(0).getIcon().setColorFilter(getResources().getColor(R.color.colorWhite), PorterDuff.Mode.SRC_IN);
+        tab_layout.getTabAt(0).getIcon().setColorFilter(getResources().getColor(R.color.BtmNavDull), PorterDuff.Mode.SRC_IN);
         tab_layout.getTabAt(1).getIcon().setColorFilter(getResources().getColor(R.color.BtmNavDull), PorterDuff.Mode.SRC_IN);
         //tab_layout.getTabAt(2).getIcon().setColorFilter(getResources().getColor(R.color.BtmNavDull), PorterDuff.Mode.SRC_IN);
-        tab_layout.getTabAt(2).getIcon().setColorFilter(getResources().getColor(R.color.BtmNavDull), PorterDuff.Mode.SRC_IN);
+        tab_layout.getTabAt(2).getIcon().setColorFilter(getResources().getColor(R.color.colorWhite), PorterDuff.Mode.SRC_IN);
         tab_layout.getTabAt(3).getIcon().setColorFilter(getResources().getColor(R.color.BtmNavDull), PorterDuff.Mode.SRC_IN);
 
         tab_layout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                //tab.getIcon().setColorFilter(getResources().getColor(R.color.colorWhite), PorterDuff.Mode.SRC_IN);
-                int test = tab.getPosition();
-                Log.i("teeast","posipointer"+test);
+                tab.getIcon().setColorFilter(getResources().getColor(R.color.colorWhite), PorterDuff.Mode.SRC_IN);
                 switch (tab.getPosition()) {
                     case 0:
-                        //Toast.makeText(MainActivity.this, "1Clicked", Toast.LENGTH_SHORT).show();
+                        Intent homeActivity = new Intent(getApplicationContext(),MainActivity.class);
+                        homeActivity.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        homeActivity.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(homeActivity);
+                        finish();
+
 
                         break;
                     case 1:
-
-                        Log.i("teeast","position"+test);
                         Intent starActivity = new Intent(getApplicationContext(),My_Content.class);
                         starActivity.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         starActivity.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         startActivity(starActivity);
                         finish();
 
-                        //Toast.makeText(MainActivity.this, "1Clicked", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Intent navActivity = new Intent(getApplicationContext(),MainNavActivity.class);
-                        navActivity.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        navActivity.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                        startActivity(navActivity);
-                        finish();
 
                         break;
                     case 3:
@@ -98,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
                         moreActivity.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         startActivity(moreActivity);
                         finish();
-
                         break;
 
                 }

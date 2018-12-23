@@ -158,7 +158,79 @@ public class AllStringsArrays {
 
             //EEE421 ={"","","",""},;
             //EEE422 ={"","","",""},;
-            EEE423 ={"PS Lab","Power Systems lab","145","145"};
+            EEE423 ={"PS Lab","Power Systems lab","145","145"},
+
+            MEC211 ={"M III","Mathematics III","45","47"},
+                    MEC212 ={"M & M","Metallurgy and Mechanical Science","48","49"},
+                    MEC213 ={"MS","Mechanics of Solids","50","51"},
+                    MEC214 ={"TDM","Thermodynamics","52","54"},
+                    MEC215 ={"KM","Kinematics of Machines","55","56"},
+                    MEC216 ={"Machine Drawing","Machine Drawing practice","57","58"},
+                    MEC217 ={"M & M lab","Mechanics of solids & Metallurgy lab","59","60"},
+                    MEC218 ={"F & L lab","Fuels and Lubrication Lab","61","61"},
+                    MEC219 ={"HVPE","Human values And professional Ethics","62","63"},
+
+                    MEC221 ={"FM & HM","Fluid Mechanics & Hydraulic Machinery","64","65"},
+                    MEC222 ={"TE 1","Thermal Engineering 1","66","68"},
+                            MEC223 ={"DM","Dynamics Of Machines","69","70"},
+                            MEC224 ={"PT","Production technology","71","72"},
+                            MEC225 ={"ICS","Instrumentation & Control Systems","73","74"},
+                            MEC226 ={"GS lab","Gender Sensitization Lab","73","78"},
+                            MEC227 ={"FM & HM Lab","...","79","79"},
+                            MEC228 ={"ICS Lab","Instrumentation & Control systems Lab","80","80"},
+                            MEC229 ={"PT Lab","Production Technology","81","81"},
+
+            //MEC31 ={"","","",""},
+            MEC312 ={"MEFA","...","82","83"},
+                    MEC313 ={"DMM 1","Design of Machine Members 1","84","85"},
+                    MEC314 ={"TE 2","Thermal Engineering 2","86","87"},
+                    MEC315 ={"MT & M","Machine Tools and Metrology","88","89"},
+                    MEC316 ={"TE lab","Thermal Engineering Lab","90","90"},
+                    MEC317 ={"MT & M Lab","...","91","91"},
+                    MEC318 ={"AELCS","Adv ELCS Lab","92","95"},
+
+            //MEC321 ={"","","",""},
+            MEC322 ={"PE 1","...","96","103"},
+                    MEC323 ={"PE 2","...","104","111"},
+                    MEC324 ={"DMM 2","design of Machine Members 2","112","113"},
+                    MEC325 ={"HT","Heat Transfer","114","116"},
+                    MEC326 ={"K & D Lab","Kinematics & Dynamics lab","117","117"},
+                    MEC327 ={"HT Lab","Heat Transfer Lab","118","118"},
+                    MEC328 ={"AT Lab","Advanced Thermodynamics Lab","119","119"},
+
+            MEC411 ={"PE 3","...","120","127"},
+                    MEC412 ={"PE 4","...","128","135"},
+                    MEC413 ={"PE 5","...","136","143"},
+                    MEC414 ={"R&AC","...","144","145"},
+                    MEC415 ={"CAD/CAM","...","146","147"},
+                    MEC416 ={"CAD/CAM Lab","...","148","148"},
+
+            //MEC421 ={"","","",""},
+            //MEC422 ={"","","",""},
+            MEC423 ={"R&AC Lab","...","153","153"},
+
+
+            MET211 ={"M III","Mathematics 3","45","47"},
+                    MET212 ={"MS","Mechanics of Solids","48","49"},
+                    MET213 ={"FFR","Fuels,Furnaces and Refactories","50","51"},
+                    MET214 ={"MD","Mineral Dressing","52","53"},
+                    MET215 ={"T&K","Thermodynamics & Kinetics","54","55"},
+                    MET216 ={"FFR Lab","Fuels,Furnaces and Refactories lab","54","55"},
+                    MET217 ={"MD Lab","Mineral Dressing lab","57","57"},
+                    MET218 ={"JAVA Lab","...","58","58"},
+                    MET219 ={"HVPE","...","59","60"},
+
+            MET221 ={"MF","Mechanics of fluids","61","62"},
+                    MET222 ={"MA","Metallurgical Analysis","63","64"},
+                    MET223 ={"PM","Physical Metallurgy","63","64"},
+                    MET224 ={"MT","Metallurgical Thermodynamics","67","68"},
+                    MET225 ={"PEM","Principle Of extractive Metallurgy","69","70"},
+                    MET226 ={"GS Lab","Gender Senisitization Lab","71","74"},
+                    MET227 ={"MA lab","Metallurgical Analysis lab","75","75"},
+                    MET228 ={"PM Lab","Physical metallurgy Lab","76","76"},
+                    MET229 ={"PEM Lab","...","77","77"},
+
+            MET31 ={"","","",""};
 
 
 

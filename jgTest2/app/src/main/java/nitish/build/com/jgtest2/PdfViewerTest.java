@@ -39,7 +39,7 @@ public class PdfViewerTest extends AppCompatActivity {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        String[] strarr ={"2","5"};
+        //String[] strarr ={"2","5"};
 
         pdfView= (PDFView)findViewById(R.id.pdfTest);
         pdfView.fromAsset("fsyll_btech_ece17.pdf")

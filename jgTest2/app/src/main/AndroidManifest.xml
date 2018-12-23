@@ -32,7 +32,10 @@
         <activity android:name=".Syllabus_Sem" />
         <activity android:name=".Syllabus_finTest" />
         <activity android:name=".PdfViewerTest" />
-        <activity android:name=".Syllabus_Subj"></activity>
+        <activity android:name=".Syllabus_Subj" />
+        <activity android:name=".My_Content" />
+        <activity android:name=".MainNavActivity" />
+        <activity android:name=".MainMoreActivity"></activity>
     </application>
 
 </manifest>
