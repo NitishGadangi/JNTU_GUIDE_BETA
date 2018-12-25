@@ -9,12 +9,11 @@
     <TextView
         android:id="@+id/listlayoutbg"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/rectattop"
+        android:layout_height="2dp"
+        android:background="@color/BtmNavDull"
         app:layout_constraintBottom_toBottomOf="@+id/customListNo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/customListNo"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/customListNo" />
 
     <TextView
         android:id="@+id/customListNo"
@@ -39,6 +38,7 @@
         android:text="Heading"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
+        android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/customListNo"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,7 +51,8 @@
         android:fontFamily="@font/open_sans"
         android:gravity="center|start"
         android:paddingLeft="7dp"
-        android:text="descrioption"
+        android:text="descriptionn"
+        android:singleLine="true"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="@+id/customListNo"
         app:layout_constraintStart_toEndOf="@+id/customListNo"

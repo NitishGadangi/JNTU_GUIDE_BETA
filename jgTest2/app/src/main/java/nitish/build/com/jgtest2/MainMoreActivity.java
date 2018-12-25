@@ -7,10 +7,17 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
+
+import static nitish.build.com.jgtest2.AllStringsArrays.*;
 
 public class MainMoreActivity extends AppCompatActivity {
 
@@ -34,6 +41,43 @@ public class MainMoreActivity extends AppCompatActivity {
             }
         });
 
+        ListView moreList = findViewById(R.id.more_list);
+        CustomAdapter moreAdapter = new CustomAdapter();
+        moreList.setAdapter(moreAdapter);
+
+    }
+
+    class CustomAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            //Log.i("Countaaaa",Integer.toString(COURSES.length));
+            //Toast.makeText(syllabus_select_course.this, COURSES.length, Toast.LENGTH_SHORT).show();
+            return (MORE_LIST.length);
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = getLayoutInflater().inflate(R.layout.custom_more_list_view,null);
+
+            TextView heading = convertView.findViewById(R.id.cus_more_heading);
+            ImageView icon = convertView.findViewById(R.id.cus_more_icon),
+                    border = convertView.findViewById(R.id.cus_more_border);
+
+            heading.setText(MORE_LIST[position][0]);
+            icon.setImageResource(Integer.parseInt(MORE_LIST[position][1]));
+            return convertView;
+        }
     }
 
 

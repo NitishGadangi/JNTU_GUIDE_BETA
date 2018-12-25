@@ -1,8 +1,10 @@
 package nitish.build.com.jgtest2;
 
+import android.content.Intent;
+
 public class AllStringsArrays {
     static String[] COURSES = {"B.Tech","B.Tech IDP MBA","B.Tech IDP M.Tech","M.Tech","M.sc"};
-    static String[] COURSESDES = {"ECE, CIVIL, EEE, MECH., CSE,Met,Chem.........","All B.Tech+MBA IDP COURSES",
+    static String[] COURSESDES = {"ECE , Civil , EEE , Mechanical , CSE ,Metallurgy ,Chemical .........","All B.Tech+MBA IDP COURSES",
             "All B.Tech+M.Tech IDP COURSES","All M.Tech COURSES","All M.Sc COURSES"};
     static String[] BRANCHESBTECH ={"ECE","CIVIL","EEE","MECHANICAL","CSE","METALLURGY","CHEMICAL"};
     static String[] BRANCHES_IDP ={"ECE","CIVIL","EEE","MECHANICAL","CSE"};
@@ -13,6 +15,22 @@ public class AllStringsArrays {
     static String[] BRANCHES_MSC ={};
     static String[] YEARS_MSC = {};
     static String[] SEMESTERS = {"1st Sem R17","2nd Sem R17"};
+
+    //--------ICONS FOR ARRAYS GO HERE----------//
+
+    static String[] RATE_OUR_APP ={"Rate our App",Integer.toString(R.drawable.ic_star)},
+                    REPORT_A_PROBLEM={"Report A Problem",Integer.toString(android.R.drawable.stat_notify_error)},
+                    SUGGEST_A_FEATURE ={"Suggest A Feature",Integer.toString(R.drawable.ic_idea)},
+                    ABOUT_DEVELOPER = {"About Developer",Integer.toString(R.drawable.ic_about_dev)},
+                    WHY_ADS={"Why Ads ?",Integer.toString(R.drawable.ic_question)},
+                    ABOUT_APP ={"About App",Integer.toString(R.drawable.ic_about_app)},
+                    UPCOMING_FEATURES={"Upcoming Features",Integer.toString(R.drawable.ic_question)};
+
+    static  String[][] MORE_LIST ={RATE_OUR_APP,REPORT_A_PROBLEM,SUGGEST_A_FEATURE,ABOUT_DEVELOPER,WHY_ADS,ABOUT_APP,UPCOMING_FEATURES};
+
+
+
+    //________End Of Icons_____________________//
 
     //--------All SUBJECTS TO BE DECLARED HERE-----------//
     public static String[] ECE211={"M-III","Mathematics - III","46","48"},
