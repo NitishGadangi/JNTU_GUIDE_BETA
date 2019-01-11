@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,12 +25,62 @@ public class MainMoreActivity extends AppCompatActivity {
 
     static TabLayout tab_layout;
 
+
+    //------------------------   Double tap to Exit   ----------------------------//
+
+    private boolean doubleBackToExitPressedOnce;
+    private Handler mHandler = new Handler();
+    public Toast exitToast ;
+
+    private final Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            doubleBackToExitPressedOnce = false;
+        }
+    };
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+
+        if (mHandler != null) { mHandler.removeCallbacks(mRunnable); }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            exitToast.cancel();
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        exitToast.show();
+
+        mHandler.postDelayed(mRunnable, 2000);
+    }
+
+    //------------------- End of Double tap to Exit code --------------------//
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_more);
 
         initComponent();
+
+        exitToast = Toast.makeText(getApplicationContext(), "Please click BACK again to exit", Toast.LENGTH_SHORT);
+
+        Button backTop = findViewById(R.id.backMoreTop);
+        backTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toHome = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(toHome);
+            }
+        });
 
         Button tempHome = findViewById(R.id.tempHome);
         tempHome.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +96,21 @@ public class MainMoreActivity extends AppCompatActivity {
         ListView moreList = findViewById(R.id.more_list);
         CustomAdapter moreAdapter = new CustomAdapter();
         moreList.setAdapter(moreAdapter);
+
+        moreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        break;
+                    case 5:
+                        //About App
+                        Intent toAboutApp = new Intent(getApplicationContext(),about_app.class);
+                        startActivity(toAboutApp);
+                        break;
+                }
+            }
+        });
 
     }
 

@@ -65,10 +65,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/backMoreTop"
         android:layout_width="27.63dp"
         android:layout_height="21dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/backwhite"

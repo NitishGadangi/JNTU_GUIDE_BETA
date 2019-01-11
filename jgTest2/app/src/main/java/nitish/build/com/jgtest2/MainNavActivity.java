@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -20,12 +21,53 @@ import com.google.android.material.tabs.TabLayout;
 public class MainNavActivity extends AppCompatActivity {
     static TabLayout tab_layout;
 
+
+    //------------------------   Double tap to Exit   ----------------------------//
+
+
+    private boolean doubleBackToExitPressedOnce;
+    private Handler mHandler = new Handler();
+    public Toast exitToast ;
+
+    private final Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            doubleBackToExitPressedOnce = false;
+        }
+    };
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+
+        if (mHandler != null) { mHandler.removeCallbacks(mRunnable); }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            exitToast.cancel();
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        exitToast.show();
+
+        mHandler.postDelayed(mRunnable, 2000);
+    }
+
+    //------------------- End of Double tap to Exit code --------------------//
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_nav);
 
         initComponent();
+
+        exitToast = Toast.makeText(getApplicationContext(), "Please click BACK again to exit", Toast.LENGTH_SHORT);
 
         Button tempHome = findViewById(R.id.tempHome);
         tempHome.setOnClickListener(new View.OnClickListener() {

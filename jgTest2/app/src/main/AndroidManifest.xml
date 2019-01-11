@@ -35,7 +35,8 @@
         <activity android:name=".Syllabus_Subj" />
         <activity android:name=".My_Content" />
         <activity android:name=".MainNavActivity" />
-        <activity android:name=".MainMoreActivity"></activity>
+        <activity android:name=".MainMoreActivity" />
+        <activity android:name=".about_app"></activity>
     </application>
 
 </manifest>

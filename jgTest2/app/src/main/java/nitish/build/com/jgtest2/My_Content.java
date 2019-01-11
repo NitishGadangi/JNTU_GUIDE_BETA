@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -19,6 +20,7 @@ public class My_Content extends AppCompatActivity {
 
     static TabLayout tab_layout;
 
+    /*
     @Override
     public void onBackPressed()
     {   //super.onBackPressed();
@@ -29,6 +31,45 @@ public class My_Content extends AppCompatActivity {
         finish();
 
     }
+    */
+
+    //------------------------   Double tap to Exit   ----------------------------//
+
+
+    private boolean doubleBackToExitPressedOnce;
+    private Handler mHandler = new Handler();
+    public Toast exitToast ;
+
+    private final Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            doubleBackToExitPressedOnce = false;
+        }
+    };
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+
+        if (mHandler != null) { mHandler.removeCallbacks(mRunnable); }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            exitToast.cancel();
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        exitToast.show();
+
+        mHandler.postDelayed(mRunnable, 2000);
+    }
+
+    //------------------- End of Double tap to Exit code --------------------//
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +89,7 @@ public class My_Content extends AppCompatActivity {
             }
         });
 
-
+        exitToast = Toast.makeText(getApplicationContext(), "Please click BACK again to exit", Toast.LENGTH_SHORT);
 
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
