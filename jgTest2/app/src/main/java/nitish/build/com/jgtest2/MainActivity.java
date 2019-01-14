@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     // Attributes -------------
     static TabLayout tab_layout;   // Bottom Tab Icon Layout
-    Button syllabusButn,resultsBtn;
+    Button syllabusButn,refbooksBtn,resultsBtn;
 
     //------------------------   Double tap to Exit   ----------------------------//
 
@@ -73,8 +73,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent syllabusIntent = new Intent(getApplicationContext(),syllabus_select_course.class);
+                syllabusIntent.putExtra("initCode",1);
                 startActivity(syllabusIntent);
                 }});
+
+        refbooksBtn=findViewById(R.id.refbooksBtn);
+        refbooksBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent refBooks = new Intent(getApplicationContext(),syllabus_select_course.class);
+                refBooks.putExtra("initCode",2);
+                startActivity(refBooks);
+            }
+        });
+
 
         resultsBtn=findViewById(R.id.resultsBtn);
         resultsBtn.setOnClickListener(new View.OnClickListener() {

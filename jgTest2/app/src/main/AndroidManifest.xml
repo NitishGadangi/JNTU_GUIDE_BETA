@@ -36,7 +36,10 @@
         <activity android:name=".My_Content" />
         <activity android:name=".MainNavActivity" />
         <activity android:name=".MainMoreActivity" />
-        <activity android:name=".about_app"></activity>
+        <activity android:name=".about_app" />
+        <activity android:name=".academic_calendar" />
+        <activity android:name=".Show_Available_Books" />
+        <activity android:name=".webDisplay"></activity>
     </application>
 
 </manifest>

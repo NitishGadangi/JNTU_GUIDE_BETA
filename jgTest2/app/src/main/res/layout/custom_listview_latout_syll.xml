@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/customListHeading"
+        android:id="@+id/refListHead"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:fontFamily="@font/open_sans_bold"
@@ -58,7 +58,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/customListNo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/customListNo"
-        app:layout_constraintTop_toBottomOf="@+id/customListHeading" />
+        app:layout_constraintTop_toBottomOf="@+id/refListHead" />
 
     <ImageView
         android:id="@+id/rightArrow"

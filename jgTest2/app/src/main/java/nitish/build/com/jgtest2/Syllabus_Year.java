@@ -17,8 +17,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import static nitish.build.com.jgtest2.AllStringsArrays.COURSES;
-
 public class Syllabus_Year extends AppCompatActivity {
     String[] listStringArr;
     int codeCourseBranchPos;
@@ -29,7 +27,7 @@ public class Syllabus_Year extends AppCompatActivity {
         setContentView(R.layout.activity_syllabus__year);
 
         Intent sourceIntent = getIntent();
-        codeCourseBranchPos = sourceIntent.getIntExtra("CourseBranch",11);
+        codeCourseBranchPos = sourceIntent.getIntExtra("CourseBranch",111);
 
         Toolbar toolbar = findViewById(R.id.toolbarSyll);
         setSupportActionBar(toolbar);
@@ -92,7 +90,7 @@ public class Syllabus_Year extends AppCompatActivity {
 
             TextView bg = convertView.findViewById(R.id.listlayoutbg),
                     customlistNo = convertView.findViewById(R.id.customListNo),
-                    customListHead = convertView.findViewById(R.id.customListHeading),
+                    customListHead = convertView.findViewById(R.id.refListHead),
                     customListDes = convertView.findViewById(R.id.customListDes);
             ImageView rightArrow = convertView.findViewById(R.id.rightArrow);
 

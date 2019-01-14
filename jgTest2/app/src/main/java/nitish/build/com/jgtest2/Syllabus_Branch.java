@@ -18,12 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-import static nitish.build.com.jgtest2.AllStringsArrays.BRANCHESBTECH;
-import static nitish.build.com.jgtest2.AllStringsArrays.BRANCHES_IDP;
-import static nitish.build.com.jgtest2.AllStringsArrays.BRANCHES_MSC;
-import static nitish.build.com.jgtest2.AllStringsArrays.BRANCHES_MTECH;
 import static nitish.build.com.jgtest2.AllStringsArrays.COURSES;
-import static nitish.build.com.jgtest2.AllStringsArrays.COURSESDES;
 
 public class Syllabus_Branch extends AppCompatActivity {
     String[] listStringArr;
@@ -35,7 +30,7 @@ public class Syllabus_Branch extends AppCompatActivity {
         setContentView(R.layout.activity_syllabus__branch);
 
         Intent sourceIntent = getIntent();
-        clickedCoursePos = sourceIntent.getIntExtra("Course",1);
+        clickedCoursePos = sourceIntent.getIntExtra("Course",11);
 
         Toolbar toolbar = findViewById(R.id.toolbarSyll);
         setSupportActionBar(toolbar);
@@ -100,7 +95,7 @@ public class Syllabus_Branch extends AppCompatActivity {
 
             TextView bg = convertView.findViewById(R.id.listlayoutbg),
                     customlistNo = convertView.findViewById(R.id.customListNo),
-                    customListHead = convertView.findViewById(R.id.customListHeading),
+                    customListHead = convertView.findViewById(R.id.refListHead),
                     customListDes = convertView.findViewById(R.id.customListDes);
             ImageView rightArrow = convertView.findViewById(R.id.rightArrow);
 

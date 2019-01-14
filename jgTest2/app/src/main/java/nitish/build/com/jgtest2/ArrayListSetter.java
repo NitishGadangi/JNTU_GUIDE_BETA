@@ -5,6 +5,10 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.lang.reflect.Field;
 
 import static nitish.build.com.jgtest2.AllStringsArrays.*;
@@ -12,7 +16,7 @@ import static nitish.build.com.jgtest2.AllStringsArrays.*;
 public class ArrayListSetter {
     static String[] setedlist;
     public static String[] setBranchList(int coursepos) {
-     switch (coursepos){
+     switch (coursepos%10){
         case 1:
         setedlist = BRANCHESBTECH;
         break;
@@ -35,7 +39,7 @@ public class ArrayListSetter {
     }
 
     public static String[] setYearList(int clickedpos) {
-        String codeStr = Integer.toString(clickedpos);
+        String codeStr = Integer.toString(clickedpos%100);
         if (Integer.parseInt(codeStr.substring(0,1))==1){
             setedlist = YEARS;
         }else if (Integer.parseInt(codeStr.substring(0,1))==2||Integer.parseInt(codeStr.substring(0,1))==3) {
@@ -84,7 +88,7 @@ public class ArrayListSetter {
     }
 
     public static String extractCodeForSubject(int codeFinal){
-        String finCodeOut,codeStr=Integer.toString(codeFinal);
+        String finCodeOut,codeStr=Integer.toString(codeFinal%10000);
         int temCourseLoc=Character.getNumericValue(codeStr.charAt(0)),
                 temBranchLoc=Character.getNumericValue(codeStr.charAt(1)),
                 temYrLoc=Character.getNumericValue(codeStr.charAt(2)),
@@ -126,7 +130,22 @@ public class ArrayListSetter {
     }
 
 
-    public static void setSubjectBounds(){
+    //---------------------JSON TASKS-----------------------------//
+    public static String[] getStringSetFromJson(String jsonData,String code) throws JSONException {
 
+        JSONObject joInit = new JSONObject(jsonData);
+        String sheet1 = joInit.getString("Sheet1");
+        JSONArray arr = new JSONArray(sheet1);
+        String[] result = new String[arr.length()];
+        JSONObject jotemp;
+        for (int i =0 ; i<arr.length();i++){
+            jotemp = arr.getJSONObject(i);
+            result[i]=jotemp.getString(code);
+        }
+        return  result;
     }
+
+
+
+
 }

@@ -13,7 +13,7 @@ public class AllStringsArrays {
     static String[] YEARS_MTECH = {};
     static String[] BRANCHES_MSC ={};
     static String[] YEARS_MSC = {};
-    static String[] SEMESTERS = {"1st Sem R17","2nd Sem R17"};
+    static String[] SEMESTERS = {"1st Sem R17","2nd Sem R17","1st Sem R18","2nd Sem R18"};
     static String[] ACADEMIC_CALENDARS = {"Holidays list","B.Tech Academic calendar"};
     static String[] TOOLS = {"Regulations","Sgpa Calculator","Cgpa calculator",
                             "Attendance Tracker","Attendance Tracker"};

@@ -26,7 +26,7 @@ public class Syllabus_Sem extends AppCompatActivity {
         setContentView(R.layout.activity_syllabus__sem);
 
         Intent sourceIntent = getIntent();
-        codeCourseBranchYearPos = sourceIntent.getIntExtra("CourseBranchYear",1);
+        codeCourseBranchYearPos = sourceIntent.getIntExtra("CourseBranchYear",1111);
 
         Toolbar toolbar = findViewById(R.id.toolbarSyll);
         setSupportActionBar(toolbar);
@@ -56,10 +56,17 @@ public class Syllabus_Sem extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 String codeStr = Integer.toString(codeCourseBranchYearPos)+Integer.toString(position);
-                if(Character.getNumericValue(codeStr.charAt(1))==0) {
-                    Intent toSemList = new Intent(getApplicationContext(), Syllabus_Subj.class);
-                    toSemList.putExtra("CourseBranchYearSem", Integer.parseInt(codeStr));
-                    startActivity(toSemList);
+                if(Character.getNumericValue(codeStr.charAt(2))==0) {//at present if for ECE
+
+                    if (Character.getNumericValue(codeStr.charAt(0))==1){
+                    Intent toSubjList = new Intent(getApplicationContext(), Syllabus_Subj.class);
+                    toSubjList.putExtra("CourseBranchYearSem", Integer.parseInt(codeStr));
+                    startActivity(toSubjList);
+                    }else if(Character.getNumericValue(codeStr.charAt(0))==2){
+                        Intent toRefBooksDisplay = new Intent(getApplicationContext(),Show_Available_Books.class);
+                        toRefBooksDisplay.putExtra("CourseBranchYearSem", Integer.parseInt(codeStr));
+                        startActivity(toRefBooksDisplay);
+                    }
                 }
                 //Test
                 //Intent toPdfViewer = new Intent(getApplicationContext(),PdfViewerTest.class);
@@ -94,7 +101,7 @@ public class Syllabus_Sem extends AppCompatActivity {
 
             TextView bg = convertView.findViewById(R.id.listlayoutbg),
                     customlistNo = convertView.findViewById(R.id.customListNo),
-                    customListHead = convertView.findViewById(R.id.customListHeading),
+                    customListHead = convertView.findViewById(R.id.refListHead),
                     customListDes = convertView.findViewById(R.id.customListDes);
             ImageView rightArrow = convertView.findViewById(R.id.rightArrow);
 

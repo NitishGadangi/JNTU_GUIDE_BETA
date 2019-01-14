@@ -15,7 +15,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import static nitish.build.com.jgtest2.AllStringsArrays.*;
@@ -24,6 +23,7 @@ import static nitish.build.com.jgtest2.AllStringsArrays.*;
 
 public class syllabus_select_course extends AppCompatActivity {
 
+    int initCode;
 
 
 
@@ -32,6 +32,9 @@ public class syllabus_select_course extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_syllabus_select_course);
         //initToolbar();
+
+        Intent getinitCode = getIntent();
+        initCode = getinitCode.getIntExtra("initCode",1);
 
         Toolbar toolbar = findViewById(R.id.toolbarSyll);
         setSupportActionBar(toolbar);
@@ -61,7 +64,7 @@ public class syllabus_select_course extends AppCompatActivity {
 
                 }else{
                     Intent toBranch = new Intent(getApplicationContext(),Syllabus_Branch.class);
-                    toBranch.putExtra("Course",position);
+                    toBranch.putExtra("Course",initCode*10+position);
                     startActivity(toBranch);
                 }
             }
@@ -94,7 +97,7 @@ public class syllabus_select_course extends AppCompatActivity {
 
             TextView bg = convertView.findViewById(R.id.listlayoutbg),
                     customlistNo = convertView.findViewById(R.id.customListNo),
-                    customListHead = convertView.findViewById(R.id.customListHeading),
+                    customListHead = convertView.findViewById(R.id.refListHead),
                     customListDes = convertView.findViewById(R.id.customListDes);
             ImageView rightArrow = convertView.findViewById(R.id.rightArrow);
 
@@ -102,7 +105,12 @@ public class syllabus_select_course extends AppCompatActivity {
             if (position == 0){
                 rightArrow.setVisibility(View.VISIBLE);
                 //customlistNo.setVisibility(View.INVISIBLE);
-                customListHead.setText("Jump to Your Syllabus");
+                if(initCode==1) {
+                    customListHead.setText("Jump to Your Syllabus");
+                }
+                else if (initCode == 2){
+                    customListHead.setText("Jump to your Course");
+                }
                 customListDes.setText("Based on your Profile Data");
             }else {
                 rightArrow.setVisibility(View.INVISIBLE);

@@ -5,7 +5,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,7 +26,7 @@ public class Syllabus_Subj extends AppCompatActivity {
         setContentView(R.layout.activity_syllabus__subj);
 
         Intent sourceIntent = getIntent();
-        codeCourseBranchYearSemPos = sourceIntent.getIntExtra("CourseBranchYearSem",1111);
+        codeCourseBranchYearSemPos = sourceIntent.getIntExtra("CourseBranchYearSem",11111);
 
         Toolbar toolbar = findViewById(R.id.toolbarSyll);
         setSupportActionBar(toolbar);
@@ -97,7 +96,7 @@ public class Syllabus_Subj extends AppCompatActivity {
 
             TextView bg = convertView.findViewById(R.id.listlayoutbg),
                     customlistNo = convertView.findViewById(R.id.customListNo),
-                    customListHead = convertView.findViewById(R.id.customListHeading),
+                    customListHead = convertView.findViewById(R.id.refListHead),
                     customListDes = convertView.findViewById(R.id.customListDes);
             ImageView rightArrow = convertView.findViewById(R.id.rightArrow);
 
