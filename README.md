@@ -15,9 +15,9 @@ __Only few parts of the app are designed which include,__
 <br><br>
 
 **Some screenshots of present UI is given below:**<br>
-![MainActivity]()
-![More info tab]()
-![Syllabus View]()
+![MainActivity](https://raw.githubusercontent.com/NitishGadangi/JNTU_GUIDE_BETA/master/screenshot1.jpeg)
+![More info tab](https://raw.githubusercontent.com/NitishGadangi/JNTU_GUIDE_BETA/master/screenshot2.jpeg)
+![Syllabus View](https://raw.githubusercontent.com/NitishGadangi/JNTU_GUIDE_BETA/master/screenshot3.jpeg)
 
 <br>
 
