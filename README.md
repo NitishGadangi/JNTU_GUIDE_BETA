@@ -5,7 +5,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Idea of developing this came from senario where there is no availablility of previous year question papers as they are not made available to the students by the institution it self. So the only way of gathering them is to consult seniors. But if there is facility where every one contribute the resources that are useful and every one who are within the app can view it will make it easier to maintain a database of all the required content and this will keep on growing as days proceed.
 <br>
 As of now, the app is still under-development.<br><br>
-__Only few parts of the app are designed which include,__
+__For Now,Only few parts of the app are designed which include,__
 - Syllabus layout
 - Backend code Reference Books Page
 - Results Tab
